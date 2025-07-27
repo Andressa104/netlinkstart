@@ -1,4 +1,211 @@
-<!-- Modals -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andressa | Renda Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0F0F0F;
+            color: #ffffff;
+        }
+        .netflix-red {
+            background-color: #E50914;
+        }
+        .netflix-red-text {
+            color: #E50914;
+        }
+        .card {
+            background-color: #1A1A1A;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #E50914;
+        }
+        .modal {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: #1A1A1A;
+            border: 2px solid #333;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #E50914;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, #0F0F0F 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-gradient-to-b from-black to-transparent z-50 px-4 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="netflix-red-text text-2xl font-bold">ANDRESSA</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#sobre" class="nav-link hover:netflix-red-text transition">Sobre Mim</a>
+                <a href="#cards" class="nav-link hover:netflix-red-text transition">Comece Aqui</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-95 z-50 hidden flex-col items-center justify-center">
+        <button class="absolute top-4 right-4 text-white focus:outline-none" id="close-menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="flex flex-col space-y-6 text-xl">
+            <a href="#sobre" class="hover:netflix-red-text transition">Sobre Mim</a>
+            <a href="#cards" class="hover:netflix-red-text transition">Comece Aqui</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="sobre" class="hero-gradient min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Andressa</h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-10">Descubra como ter uma renda dentro de casa sem precisar aparecer, com métodos simples e eficientes para o mercado digital.</p>
+                <a href="#cards" class="netflix-red px-8 py-3 rounded font-bold inline-block hover:bg-red-700 transition">
+                    Comece Agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section id="cards" class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Escolha seu caminho</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Presente Card -->
+                <div class="card rounded-lg overflow-hidden cursor-pointer" data-modal="presente">
+                    <div class="p-6 flex flex-col items-center text-center h-full">
+                        <div class="w-16 h-16 netflix-red rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Pegue seu presente</h3>
+                        <p class="text-gray-400 mb-4">Clique aqui e receba seu presente especial</p>
+                        <div class="mt-auto">
+                            <span class="netflix-red-text font-semibold">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start Card -->
+                <div class="card rounded-lg overflow-hidden cursor-pointer" data-modal="start">
+                    <div class="p-6 flex flex-col items-center text-center h-full">
+                        <div class="w-16 h-16 netflix-red rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Start</h3>
+                        <p class="text-gray-400 mb-4">Inicie no mercado digital sem precisar aparecer</p>
+                        <div class="mt-auto">
+                            <span class="netflix-red-text font-semibold">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pack de Figurinhas Card -->
+                <div class="card rounded-lg overflow-hidden cursor-pointer" data-modal="figurinhas">
+                    <div class="p-6 flex flex-col items-center text-center h-full">
+                        <div class="w-16 h-16 netflix-red rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Pack de Figurinhas</h3>
+                        <p class="text-gray-400 mb-4">Figurinhas prontas para usar em seus conteúdos</p>
+                        <div class="mt-auto">
+                            <span class="netflix-red-text font-semibold">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seja Produtora Card -->
+                <div class="card rounded-lg overflow-hidden cursor-pointer" data-modal="produtora">
+                    <div class="p-6 flex flex-col items-center text-center h-full">
+                        <div class="w-16 h-16 netflix-red rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Seja Produtora</h3>
+                        <p class="text-gray-400 mb-4">Produtos prontos com direito de revenda</p>
+                        <div class="mt-auto">
+                            <span class="netflix-red-text font-semibold">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PVV Card -->
+                <div class="card rounded-lg overflow-hidden cursor-pointer" data-modal="pvv">
+                    <div class="p-6 flex flex-col items-center text-center h-full">
+                        <div class="w-16 h-16 netflix-red rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">PVV</h3>
+                        <p class="text-gray-400 mb-4">Canal de mídias com vídeos magnéticos</p>
+                        <div class="mt-auto">
+                            <span class="netflix-red-text font-semibold">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Robôs Assistentes Card -->
+                <div class="card rounded-lg overflow-hidden cursor-pointer" data-modal="robos">
+                    <div class="p-6 flex flex-col items-center text-center h-full">
+                        <div class="w-16 h-16 netflix-red rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Robôs Assistentes</h3>
+                        <p class="text-gray-400 mb-4">8 robôs configurados para te auxiliar</p>
+                        <div class="mt-auto">
+                            <span class="netflix-red-text font-semibold">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
     <!-- Presente Modal -->
     <div id="presente-modal" class="modal fixed inset-0 z-50 hidden flex items-center justify-center p-4">
         <div class="modal-content max-w-md w-full rounded-lg p-6 mx-auto">
@@ -62,3 +269,167 @@
                     Não é telegram, não é drive, é app, basta copiar e colar. Não precisa baixar na galeria.
                     Nosso pack de figurinhas exclusivas vai deixar seu conteúdo muito mais atrativo e 
                     profissional.
+                </p>
+            </div>
+            <a href="https://kiwify.app/kNUEibU?afid=ojGk2mK6" target="_blank" class="netflix-red w-full py-3 rounded font-bold text-center block hover:bg-red-700 transition">
+                Quero meu pack de figurinhas
+            </a>
+        </div>
+    </div>
+
+    <!-- Produtora Modal -->
+    <div id="produtora-modal" class="modal fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-content max-w-md w-full rounded-lg p-6 mx-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Seja Produtora</h3>
+                <button class="close-modal text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="mb-6">
+                <p class="text-gray-300 mb-4">
+                    Loja com diversos produtos prontos, com direito de revenda, use ou venda como seu.
+                    Economize tempo e dinheiro com produtos de alta qualidade que você pode começar a 
+                    vender imediatamente.
+                </p>
+            </div>
+            <a href="https://t.me/+m4e_pT0L9Oo1Y2Ux" target="_blank" class="netflix-red w-full py-3 rounded font-bold text-center block hover:bg-red-700 transition">
+                Quero ser produtora
+            </a>
+        </div>
+    </div>
+
+    <!-- PVV Modal -->
+    <div id="pvv-modal" class="modal fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-content max-w-md w-full rounded-lg p-6 mx-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">PVV</h3>
+                <button class="close-modal text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="mb-6">
+                <p class="text-gray-300 mb-4">
+                    Canal de mídias com vídeos magnéticos para não passar despercebida, reels, stories, anúncios.
+                    Destaque-se nas redes sociais com conteúdo profissional e atrativo que converte seguidores em clientes.
+                </p>
+            </div>
+            <a href="https://pay.cakto.com.br/q8csSuH?affiliate=eyYu2QHP" target="_blank" class="netflix-red w-full py-3 rounded font-bold text-center block hover:bg-red-700 transition">
+                Quero meus vídeos magnéticos
+            </a>
+        </div>
+    </div>
+
+    <!-- Robôs Modal -->
+    <div id="robos-modal" class="modal fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-content max-w-md w-full rounded-lg p-6 mx-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Robôs Assistentes</h3>
+                <button class="close-modal text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="mb-6">
+                <p class="text-gray-300 mb-4">
+                    Tenha 8 robôs configurados para te auxiliar na criação de produtos, narrativa, copy, 
+                    página de vendas, anúncios e mais. Economize horas de trabalho com assistentes digitais 
+                    que fazem o trabalho pesado para você.
+                </p>
+            </div>
+            <a href="https://t.me/+m4e_pT0L9Oo1Y2Ux" target="_blank" class="netflix-red w-full py-3 rounded font-bold text-center block hover:bg-red-700 transition">
+                Quero meus robôs assistentes
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-black border-t border-gray-800">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="netflix-red-text text-2xl font-bold mb-4 md:mb-0">ANDRESSA</div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">© 2023 Andressa. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+
+        // Modal functionality
+        const cards = document.querySelectorAll('.card');
+        const closeButtons = document.querySelectorAll('.close-modal');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const modalId = card.getAttribute('data-modal');
+                const modal = document.getElementById(`${modalId}-modal`);
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            });
+        });
+
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            });
+        });
+
+        // Close modal when clicking outside
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('flex');
+                    }
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965879fae2b6fe12',t:'MTc1MzU4MDkyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
